@@ -1,0 +1,13 @@
+pipeline {
+    agent { label 'docker-slave1' }
+    parameters {
+        string(name: 'Name', defaultValue: 'Rajasekhar', description: 'I Love You')
+    }
+    stages {
+        stage('Example') {
+            steps {
+                echo "${params.Name} ${params.desription}!"
+            }
+        }
+    }
+}
