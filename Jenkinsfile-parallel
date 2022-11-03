@@ -1,0 +1,17 @@
+pipeline {
+    agent none
+    stages {
+        stage('Example') {
+        agent { label 'docker-slave1' }
+            steps {
+               sh "java -version"
+            }
+        }
+        stage('test') {
+        agent { label 'docker-slave1' }
+           steps {
+             sh "mvn --version"
+           }
+        }
+    }
+}
